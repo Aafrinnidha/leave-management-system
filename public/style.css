@@ -1,0 +1,352 @@
+
+/* =====================================
+   LEAVE MANAGEMENT SYSTEM
+   MAIN PAGE STYLING
+===================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* =====================================
+   HEADINGS
+===================================== */
+
+h1 {
+    text-align: center;
+    color: #1e3a5f;
+    margin: 20px 0;
+}
+
+h2 {
+    color: #1e3a5f;
+    margin-bottom: 18px;
+}
+
+h3 {
+    color: #2864a8;
+    margin-bottom: 12px;
+}
+
+/* =====================================
+   SECTIONS
+===================================== */
+
+section {
+    max-width: 1000px;
+    margin: 25px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Hide inactive sections */
+.hidden {
+    display: none !important;
+}
+
+/* =====================================
+   CONTAINERS AND CARDS
+===================================== */
+
+.container {
+    max-width: 1100px;
+    margin: 20px auto;
+}
+
+.card {
+    background: #ffffff;
+    padding: 22px;
+    margin: 18px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 7px;
+    background: #2864a8;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    background: #194b83;
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* =====================================
+   FORMS
+===================================== */
+
+form {
+    width: 100%;
+    max-width: 600px;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 600;
+    color: #334155;
+}
+
+input,
+select,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+    background: #ffffff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #2864a8;
+    box-shadow: 0 0 0 2px rgba(40, 100, 168, 0.12);
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+/* =====================================
+   PORTAL SELECTION
+===================================== */
+
+.portal-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 22px;
+}
+
+.portal-options button {
+    min-height: 110px;
+    font-size: 18px;
+    border-radius: 10px;
+    background: #2864a8;
+    transition: 0.2s ease;
+}
+
+.portal-options button:hover {
+    background: #194b83;
+    transform: translateY(-2px);
+}
+
+/* =====================================
+   STUDENT DASHBOARD
+===================================== */
+
+#dashboard {
+    max-width: 1100px;
+}
+
+#dashboard .card {
+    border-left: 4px solid #2864a8;
+}
+
+#dashboard button {
+    margin-top: 10px;
+}
+
+/* =====================================
+   LEAVE BALANCE
+===================================== */
+
+#casual-balance,
+#medical-balance {
+    font-weight: bold;
+    color: #2864a8;
+}
+
+/* =====================================
+   LEAVE HISTORY
+===================================== */
+
+#leave-history {
+    margin-top: 15px;
+}
+
+#leave-history .request-card {
+    background: #f8fafc;
+    border-left: 4px solid #2864a8;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 7px;
+}
+
+/* =====================================
+   STAFF LOGIN
+===================================== */
+
+#staff-login-section {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =====================================
+   STAFF DASHBOARD
+===================================== */
+
+#staff-dashboard {
+    max-width: 1100px;
+}
+
+#staff-dashboard .card:first-child {
+    border-top: 4px solid #2864a8;
+}
+
+#staff-dashboard button {
+    margin: 5px;
+}
+
+/* =====================================
+   STAFF REQUEST CARDS
+===================================== */
+
+#staff-request-list {
+    margin-top: 20px;
+}
+
+#staff-request-list .request-card {
+    background: #f8fafc;
+    border-left: 4px solid #2864a8;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+#staff-request-list .request-card h3 {
+    margin-bottom: 12px;
+}
+
+.request-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.request-actions button {
+    min-width: 100px;
+}
+
+.request-actions button:last-child {
+    background: #dc3545;
+}
+
+.request-actions button:last-child:hover {
+    background: #b02a37;
+}
+
+/* =====================================
+   MESSAGES
+===================================== */
+
+.message {
+    color: #b42318;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+.success-message {
+    color: #15803d;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+/* =====================================
+   GENERAL LINKS
+===================================== */
+
+a {
+    color: #2864a8;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    section {
+        padding: 18px;
+    }
+
+    .portal-options {
+        grid-template-columns: 1fr;
+    }
+
+    .portal-options button {
+        min-height: 75px;
+    }
+
+    .request-actions {
+        flex-direction: column;
+    }
+
+    .request-actions button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 23px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+    }
+}

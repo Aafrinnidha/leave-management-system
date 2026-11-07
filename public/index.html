@@ -1,0 +1,502 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Leave Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header class="page-header">
+            <h1>Leave Management System</h1>
+            <p>Manage leave requests and balances in one place.</p>
+        </header>
+
+        <!-- PORTAL SELECTION -->
+        <section id="portal-section" class="card">
+
+            <h2>Select Your Portal</h2>
+
+            <div class="portal-options">
+
+                <button type="button" id="student-portal">
+                    Student Portal
+                </button>
+
+                <button type="button" id="staff-portal">
+                    Staff Portal
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- STUDENT LOGIN -->
+        <section id="login-section" class="card hidden">
+
+            <h2>Student Login</h2>
+
+            <form id="login-form">
+
+                <label for="email">Registered Email</label>
+                <input
+                    id="email"
+                    type="email"
+                    placeholder="Enter your registered email"
+                    required
+                >
+
+                <button type="submit">Login</button>
+
+            </form>
+
+            <p>
+                New student?
+
+                <button
+                    type="button"
+                    class="link"
+                    id="show-register"
+                >
+                    Create an account
+                </button>
+            </p>
+
+            <button
+                type="button"
+                class="secondary back-home"
+            >
+                Back to Portal Selection
+            </button>
+
+        </section>
+
+        <!-- STUDENT REGISTRATION -->
+        <section id="register-section" class="card hidden">
+
+            <h2>Student Registration</h2>
+
+            <form id="register-form">
+
+                <label for="username">Full Name</label>
+                <input
+                    id="username"
+                    type="text"
+                    maxlength="100"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+                <label for="reg-email">Email Address</label>
+                <input
+                    id="reg-email"
+                    type="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label for="roll-number">Roll Number</label>
+                <input
+                    id="roll-number"
+                    type="text"
+                    maxlength="50"
+                    placeholder="Enter your roll number"
+                    required
+                >
+
+                <button type="submit">Register</button>
+
+            </form>
+
+            <p>
+                Already registered?
+
+                <button
+                    type="button"
+                    class="link"
+                    id="show-login"
+                >
+                    Login
+                </button>
+            </p>
+
+            <p
+                id="register-message"
+                class="message"
+                role="status"
+            ></p>
+
+            <button
+                type="button"
+                class="secondary back-home"
+            >
+                Back to Portal Selection
+            </button>
+
+        </section>
+
+        <!-- STUDENT DASHBOARD -->
+        <section id="dashboard" class="hidden">
+
+            <!-- STUDENT PROFILE AND BALANCE -->
+            <section class="card">
+
+                <div class="welcome-row">
+
+                    <div>
+                        <h2>
+                            Welcome,
+                            <span id="username-display"></span>
+                        </h2>
+
+                        <p>
+                            Roll Number:
+                            <span id="roll-display"></span>
+                        </p>
+                    </div>
+
+                    <button
+                        type="button"
+                        id="logout"
+                        class="secondary"
+                    >
+                        Logout
+                    </button>
+
+                </div>
+
+                <h3>Your Leave Balance</h3>
+
+                <div class="balances">
+
+                    <div class="balance-card">
+
+                        <span>Casual Leave</span>
+
+                        <strong>
+                            <span id="casual-balance">10</span>
+                            days
+                        </strong>
+
+                    </div>
+
+                    <div class="balance-card">
+
+                        <span>Medical Leave</span>
+
+                        <strong>
+                            <span id="medical-balance">10</span>
+                            days
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="refresh-balance"
+                    class="secondary"
+                >
+                    Refresh Balance
+                </button>
+
+            </section>
+
+            <!-- APPLY LEAVE -->
+            <section class="card">
+
+                <h2>Apply for Leave</h2>
+
+                <form id="leave-form">
+
+                    <label for="leave-type">Leave Type</label>
+
+                    <select id="leave-type" required>
+
+                        <option value="casual">
+                            Casual Leave
+                        </option>
+
+                        <option value="medical">
+                            Medical Leave
+                        </option>
+
+                    </select>
+
+                    <label for="leave-days">
+                        Number of Days
+                    </label>
+
+                    <input
+                        id="leave-days"
+                        type="number"
+                        min="1"
+                        step="1"
+                        placeholder="Enter number of days"
+                        required
+                    >
+
+                    <button type="submit">
+                        Submit Leave Request
+                    </button>
+
+                </form>
+
+                <p class="hint">
+                    Your balance is deducted only after staff approval.
+                </p>
+
+            </section>
+
+            <!-- STUDENT LEAVE HISTORY -->
+            <section class="card">
+
+                <div class="section-heading">
+
+                    <h2>My Leave History</h2>
+
+                    <button
+                        type="button"
+                        id="refresh-history"
+                        class="secondary"
+                    >
+                        Refresh
+                    </button>
+
+                </div>
+
+                <div id="history-list"></div>
+
+            </section>
+
+        </section>
+
+        <!-- STAFF LOGIN -->
+        <section
+            id="staff-login-section"
+            class="card hidden"
+        >
+
+            <h2>Staff Login</h2>
+
+            <form id="staff-login-form">
+
+                <label for="staff-email">
+                    Staff Email
+                </label>
+
+                <input
+                    id="staff-email"
+                    type="email"
+                    placeholder="Enter your registered email"
+                    required
+                >
+
+                <label for="staff-password">
+                    Password
+                </label>
+
+                <input
+                    id="staff-password"
+                    type="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+                <button type="submit">
+                    Staff Login
+                </button>
+
+            </form>
+
+            <p>
+                Don't have a staff account?
+
+                <button
+                    type="button"
+                    class="link"
+                    id="show-staff-register"
+                >
+                    Create Staff Account
+                </button>
+            </p>
+
+            <p
+                id="staff-login-message"
+                class="message"
+                role="status"
+            ></p>
+
+            <button
+                type="button"
+                class="secondary back-home"
+            >
+                Back to Portal Selection
+            </button>
+
+        </section>
+
+        <!-- STAFF REGISTRATION -->
+        <section
+            id="staff-register-section"
+            class="card hidden"
+        >
+
+            <h2>Staff Registration</h2>
+
+            <p>Create your staff account using your details.</p>
+
+            <form id="staff-register-form">
+
+                <label for="staff-register-name">
+                    Full Name
+                </label>
+
+                <input
+                    id="staff-register-name"
+                    type="text"
+                    maxlength="100"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+                <label for="staff-register-email">
+                    Email Address
+                </label>
+
+                <input
+                    id="staff-register-email"
+                    type="email"
+                    placeholder="Enter your email address"
+                    required
+                >
+
+                <label for="staff-register-password">
+                    Password
+                </label>
+
+                <input
+                    id="staff-register-password"
+                    type="password"
+                    minlength="8"
+                    placeholder="Minimum 8 characters"
+                    required
+                >
+
+                <button type="submit">
+                    Create Staff Account
+                </button>
+
+            </form>
+
+            <p
+                id="staff-register-message"
+                class="message"
+                role="status"
+            ></p>
+
+            <p>
+                Already have an account?
+
+                <button
+                    type="button"
+                    class="link"
+                    id="back-to-staff-login"
+                >
+                    Staff Login
+                </button>
+            </p>
+
+            <button
+                type="button"
+                class="secondary back-home"
+            >
+                Back to Portal Selection
+            </button>
+
+        </section>
+
+        <!-- STAFF DASHBOARD -->
+        <section id="staff-dashboard" class="hidden">
+
+            <!-- STAFF WELCOME -->
+            <section class="card">
+
+                <div class="welcome-row">
+
+                    <div>
+
+                        <h2>Staff Dashboard</h2>
+
+                        <p>
+                            Welcome,
+                            <span id="staff-name-display">Staff</span>
+                        </p>
+
+                        <p>Manage student leave requests.</p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        id="staff-logout"
+                        class="secondary"
+                    >
+                        Logout
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- STAFF LEAVE REQUESTS -->
+            <section class="card">
+
+                <div class="section-heading">
+
+                    <h2>Student Leave Requests</h2>
+
+                    <button
+                        type="button"
+                        id="staff-refresh-requests"
+                        class="secondary"
+                    >
+                        Refresh
+                    </button>
+
+                </div>
+
+                <div id="staff-request-list"></div>
+
+                <p
+                    id="staff-message"
+                    class="message"
+                    role="status"
+                ></p>
+
+            </section>
+
+        </section>
+
+        <!-- GENERAL MESSAGE -->
+        <p
+            id="message"
+            class="message"
+            role="status"
+        ></p>
+
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

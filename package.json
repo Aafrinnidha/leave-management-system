@@ -1,0 +1,17 @@
+{
+  "name": "leave-management-system",
+  "version": "1.0.0",
+  "description": "Student and Staff Leave Management System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5"
+  }
+}
